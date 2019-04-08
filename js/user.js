@@ -18,28 +18,31 @@ $(document).ready(function() {
         }
 
         //@todo
-        //1. get values
-        //2. create a new element
-        //3. somehow add them to userListBody
+        var anzahl = userListBody.find('tr').length;
+        var eingabe = $('input#username');
+        var benutzername = eingabe.val();
         //4. update number of current users
         //5. clear entries from the form
         //6. maybe do something else... :-)
 
         //your code follows here
-
+        userListBody.append("<tr><td>" + parseInt(anzahl + 1) + "</td><td>" + benutzername + "</td><td><button type=\"button\" class=\"btn btn-secondary btn-danger deleteTrigger\" title=\"Löschen\"><i class=\"fa fa-trash\"></i></button></td></tr>");
+        // clear entries from input
+        eingabe.val('');
         return false;
     });
 
 
-    $('.deleteTrigger').click(function() {
+
         //@todo
-        //1. remove current user from dom
-        //2. update number of current users
+        $(userListBody).on('click', '.deleteTrigger', function(){
+            $(this).closest('tr').remove();
+        });
 
         //your code follows here
 
 
-    });
+
 
     //maybe some code follows here
 
